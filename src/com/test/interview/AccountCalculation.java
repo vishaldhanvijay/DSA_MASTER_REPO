@@ -48,3 +48,4 @@ public class AccountCalculation {
 }
 
 record Account(String accountId,int amount) {}
+

@@ -14,11 +14,12 @@ public class FindListOfPossibleInteger {
           System.out.println("Integers list is : "+collect);
           
           
-          // but if you want to find 
+          // but if you want to find all digits then 
           
           List<Integer> list2 = list.stream().flatMap(e-> e.chars().filter(Character::isDigit).boxed()).map(c-> c - '0').collect(Collectors.toList());
           
           System.out.println("all numbers list is: "+list2);
+          
           
           
          List<Character> collect2 = list.stream().flatMap(c-> c.chars().filter(Character::isLetter).mapToObj(r->(char) r)).collect(Collectors.toList());

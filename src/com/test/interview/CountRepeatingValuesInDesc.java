@@ -17,15 +17,16 @@ class CountRepeatingValuesInDesc {
     String str = "viisshaaallll" ;
        Map<Character,Long> map2 = str.chars().mapToObj(c ->(char) c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
        
-       map2.entrySet().stream().filter(e-> e.getValue() >1).sorted((a,b)-> b.getValue().compareTo(a.getValue())  ).forEach(System.out::println);
+       //map2.entrySet().stream().filter(e-> e.getValue() >1).sorted((a,b)-> b.getValue().compareTo(a.getValue())  ).forEach(System.out::println);  /OR
+       map2.entrySet().stream().filter(e-> e.getValue() >1).sorted(Map.Entry.<Character,Long>comparingByValue().reversed() ).forEach(System.out::println);
      
        
        int[] arr = {5, 2, 8, 1, 3, 5, 8, 9 ,9,9};
 		
 		//int val = Arrays.stream(arr).boxed().sorted((a,b)-> b - a).mapToInt(Integer::intValue).findFirst().orElseGet(null);   ////OR
 		//int val = Arrays.stream(arr).boxed().sorted((a,b)->b.compareTo(a)).mapToInt(Integer::intValue).findFirst().orElseGet(null);   ///OR
-		int val = Arrays.stream(arr).boxed().sorted(Comparator.comparingInt(Integer::intValue).reversed()).mapToInt(Integer::intValue).findFirst().orElseGet(null);
-		System.out.println("highest: "+val);
+		int val = Arrays.stream(arr).boxed().distinct().sorted(Comparator.comparingInt(Integer::intValue).reversed()).mapToInt(Integer::intValue).skip(1).findFirst().orElseGet(null);
+		System.out.println("second highest: "+val);
 		System.out.println("=============================================");
        Map<Integer,Long>  map3 =  Arrays.stream(arr).boxed().collect(Collectors.groupingBy(c-> c,Collectors.counting()));
         
