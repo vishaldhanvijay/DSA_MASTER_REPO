@@ -8,6 +8,8 @@ public class NumberPyramid {
         int n = 4;
 
         for(int i = 1; i <= n; i++) {
+        	
+        	
 
             // 1. Print spaces
             for(int space = 1; space <= n - i; space++) {

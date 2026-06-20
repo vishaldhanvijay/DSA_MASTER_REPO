@@ -1,6 +1,7 @@
 package com.test.interview;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -39,7 +40,8 @@ public class AccountCalculation {
 	        
 	        // 2.. Return account with second highest balance
 	        
-	        Map.Entry<String, Integer> secondHighest =      map.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).skip(1).findFirst().get();
+	      //  Map.Entry<String, Integer> secondHighest =      map.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).skip(1).findFirst().get();
+	        Map.Entry<String, Integer> secondHighest =      map.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue(Comparator.reverseOrder())).skip(1).findFirst().get();
 	        System.out.println("\nAccount " + secondHighest.getKey()
             + " having second highest amount of "
             + secondHighest.getValue());	
