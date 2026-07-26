@@ -23,7 +23,7 @@ public class AccountCalculation {
 				new Account("A3",500)
 				);
 		// calculating total balance per account
-		   Map<String, Integer> map = list.stream().collect(Collectors.groupingBy(Account::accountId,Collectors.summingInt(Account::amount)));
+		    Map<String, Integer> map = list.stream().collect(Collectors.groupingBy(Account::accountId ,Collectors.summingInt(Account::amount)));
 		   
 		  map.entrySet().stream().forEach(e-> System.out.println(e.getKey()+"- "+e.getValue()));
 		  

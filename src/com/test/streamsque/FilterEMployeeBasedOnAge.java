@@ -22,12 +22,14 @@ public class FilterEMployeeBasedOnAge {
 
 	        filteredEmployees.forEach(System.out::println);
 	        
-	        
+	        System.out.println("-----------------------------------");
 	        
 	        Map<Integer, List<Employe>> result =
 	                employe.stream()
 	                .filter(emp -> emp.age() > 35 && emp.age() <= 45)
 	                .collect(Collectors.groupingBy(Employe::age));
+	        
+	        System.out.println(result);
 
 	}
 
